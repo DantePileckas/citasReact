@@ -1,14 +1,24 @@
-import React, {Componenet} from 'react';
 import Header from './componentes/Header';
 import AgregarCita from './componentes/AgregarCitas';
+import { Component } from 'react';
 
-function App() {
-
-
-  crearCita = () => {
-    
+class App extends Component {
+  state ={
+    citas:[]
   }
 
+
+  crearCita = (nuevaCita) => { 
+  const citas = [...this.state.citas, nuevaCita] //copia de mi arreglo
+    
+
+  this.setState({
+   citas
+  });
+
+  }
+  
+  render(){
   return (
     <div className="container">
      <Header
@@ -23,5 +33,6 @@ function App() {
      </div>
     </div>
   );
+  }
 }
 export default App;
