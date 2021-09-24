@@ -11,7 +11,6 @@ class App extends Component {
 
   crearCita = (nuevaCita) => { 
   const citas = [...this.state.citas, nuevaCita] //copia de mi arreglo
-    
 
   this.setState({
    citas
@@ -19,6 +18,17 @@ class App extends Component {
 
   }
   
+  borrarCita = id => {
+    //Leer el state
+    const citasActuales = [...this.state.citas];
+    //Borrar el elemento del state
+    const citas = citasActuales.filter(cita => cita.id !== id); 
+    //Actualizar el state
+    this.setState({
+      citas
+    })
+  }
+
   render(){
   return (
     <div className="container">
@@ -34,6 +44,7 @@ class App extends Component {
        <div className="col-md-6">
          <ListasCitas
          citas = {this.state.citas}
+         borrarCita={this.borrarCita}
          />
        </div>
      </div>
