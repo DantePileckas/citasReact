@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Cita from './Cita';
+import PropTypes from 'prop-types';
 
 class ListasCitas extends Component{
     render(){
@@ -26,6 +27,11 @@ class ListasCitas extends Component{
             </div>
         );
     }
+}
+
+ListasCitas.propTypes = {
+    citas : PropTypes.array.isRequired,
+    borrarCita : PropTypes.func.isRequired
 }
 
 export default ListasCitas;
